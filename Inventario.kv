@@ -1,0 +1,577 @@
+<MainView>:
+    canvas:
+        Color:
+            rgba: 1,1,1,0.8
+        Rectangle:
+            size: self.size
+            pos: self.pos
+                 
+<BoxLogoPrincipal>:
+    orientation: 'vertical'
+    on_touch_up: root.current = 'Login'
+    canvas:
+        Color:
+            rgba: 1,1,1,0.8
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: 'img/LogoZero.jpg'
+<BoxLogin>:
+    orientation: 'vertical'
+    padding: 30,120,30,120
+    spacing: 10
+    canvas:
+        Color:
+            rgb: 0.11,0.16,0.31
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    
+    Label:
+        text: 'Login'
+        font_size: 40
+    TextInput:
+        id: userText
+        size_hint: (1, None)
+        height: 55
+        font_size: 30
+        multiline: False
+        write_tab: False
+        focus: True
+    TextInput:
+        id: passwordText
+        multiline: False
+        password: True
+        size_hint: (1, None)
+        height: 55
+        font_size: 25
+        write_tab: False
+    Button:
+        size_hint: (1, None)
+        height: 55
+        font_size: 20
+        text: 'Iniciar'
+        on_press: root.verificarUser(userText.text,passwordText.text)
+
+<BoxDefault>:
+    orientation: 'vertical'
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                previous_image: ''
+                app_icon: 'img/iconoZero.png'
+                on_release: root.index.toggle_state()
+                
+            ActionButton:
+                text: 'Opcion1'
+                on_release: root.index.toggle_state()
+            ActionSeparator:
+            ActionButton:
+                text: 'Salir'
+                on_release: app.stop()
+    BoxLayout:
+        canvas:
+            Color:
+                rgb: 0.21,0.21,0.21
+            Rectangle:
+                size: self.size
+                pos: self.pos
+<BoxSlideMenu>:
+    orientation: 'vertical'
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+<BoxEmpleados>:
+    orientation: 'vertical'
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                previous_image: ''
+                app_icon: 'img/iconoZero.png'
+                on_release: root.Menu.toggle_state()
+                
+            ActionButton:
+                text: 'Empleados'
+                on_release: print('Lsita de Empleados')
+            ActionSeparator:
+            ActionButton:
+                text: 'Crear'
+                on_release: print('Crear Empleados')
+            ActionSeparator:
+            ActionButton:
+                text: 'Salir'
+                on_release: app.stop()
+    
+        
+    
+
+<BoxProductos>:
+    orientation: 'vertical'
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                previous_image: ''
+                app_icon: 'img/iconoZero.png'
+                on_release: root.Menu.toggle_state()
+
+            ActionButton:
+                text: 'Configuracion'
+                on_release: print('Modificar o Eliminar categoria')
+            ActionSeparator:    
+            ActionButton:
+                text: 'Productos'
+                on_release: root.regresar()
+            ActionSeparator:
+            ActionButton:
+                id: btn_incluir
+                text: 'Incluir'
+                on_release: root.incluir_producto()
+            ActionSeparator:
+            ActionButton:
+                text: 'Salir'
+                on_release: app.stop()
+<BoxRegistros>:
+    orientation: 'vertical'
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                previous_image: ''
+                app_icon: 'img/iconoZero.png'
+                on_release: root.Menu.toggle_state()
+                
+            ActionButton:
+                text: 'PDF'
+                on_release: print('PDF')
+            ActionSeparator:
+            ActionButton:
+                text: 'Doc'
+                on_release: print('DOC')
+            ActionSeparator:
+            ActionButton:
+                text: 'Salir'
+                on_release: app.stop()
+    BoxLayout:
+        canvas:
+            Color:
+                rgb: 0.21,0.21,0.21
+            Rectangle:
+                size: self.size
+                pos: self.pos
+<BoxConfiguracion>:
+    orientation: 'vertical'
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                previous_image: ''
+                app_icon: 'img/iconoZero.png'
+                on_release: root.Menu.toggle_state()
+                
+            ActionButton:
+                text: 'Colores'
+                on_release: print('Colores')
+            ActionSeparator:
+            ActionButton:
+                text: 'Permisos'
+                on_release: print('Permisos')
+            ActionSeparator:
+            ActionButton:
+                text: 'Salir'
+                on_release: app.stop()
+    BoxLayout:
+        canvas:
+            Color:
+                rgb: 0.21,0.21,0.21
+            Rectangle:
+                size: self.size
+                pos: self.pos
+<BoxAyuda>:
+    orientation: 'vertical'
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                previous_image: ''
+                app_icon: 'img/iconoZero.png'
+                on_release: root.Menu.toggle_state()
+                
+            ActionButton:
+                text: 'Informacion'
+                on_release: print('Informacion')
+            ActionSeparator:
+            ActionButton:
+                text: 'Leyes'
+                on_release: print('Leyes')
+            ActionSeparator:
+            ActionButton:
+                text: 'Salir'
+                on_release: app.stop()
+    BoxLayout:
+        canvas:
+            Color:
+                rgb: 0.21,0.21,0.21
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+<BoxCard>:
+    orientation: 'horizontal'
+    size_hint_max_y: 130
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+
+<BoxContainer>:
+    padding: 10, 25 
+    spacing: 10
+    orientation: 'vertical'
+    canvas:
+        Color:
+            rgb: 0.21,0.21,0.21
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+<ImgCardBox>:
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: root.imgCard #'img/default-productos.jpg'
+
+<ContainerCardBox>:
+    orientation: 'vertical' 
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    
+    Label:
+        text: root.titulo
+        color: 0,0,0,1
+
+<BoxDetails>:
+    orientation: 'vertical' 
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                previous_image: ''
+                app_icon: 'img/iconoZero.png'
+                on_release: root.Menu.toggle_state()
+                
+            ActionButton:
+                text: 'Atras'
+                on_release: print('Lsita de Empleados')
+            ActionSeparator:
+            ActionButton:
+                text: 'Actualizar'
+                on_release: print('Crear Empleados')
+            ActionSeparator:
+            ActionButton:
+                text: 'Salir'
+                on_release: app.stop()
+    BoxLayout:
+        orientation: 'vertical' 
+        padding: 20
+        canvas:
+            Color:
+                rgb: 0.21,0.21,0.21
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            orientation: 'vertical' 
+            size_hint: (1, .4)
+            canvas:
+                Color:
+                    rgb: 1,1,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source: root.img_detalle #'img/perfil-empleado.jpg'
+        BoxLayout:
+            id: contenedor_detalles
+            orientation: 'vertical' 
+            size_hint: (1, .6)
+            canvas:
+                Color:
+                    rgb: 1,1,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: '[b]Articulo Seleccionado[/b]'
+                size_hint: (1, 0.3)
+                markup: True
+                background_color: 1, 1, 1, 1
+                canvas.before:
+                    Color:
+                        rgb: 0,0,0
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+            GridLayout:
+                id: grid_contenedor_id
+                cols:2
+                canvas:
+                    Color:
+                        rgb: 1,1,1
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+            Button:
+                text: "Editar"
+                size_hint: (1, 0.45)
+                on_press: root.btn_editar_producto()
+                Image:
+                    id: img_id
+                    source: './img/editar_productos.png'
+                    y: self.parent.y
+                    #y: (self.parent.size[1]/2) - 35
+                    x: self.parent.x
+                    size: 75, self.parent.size[1]
+                    allow_stretch: True
+                
+
+
+<PopUpContainer>:
+<FileBox>:
+    id: file_detect
+    orientation: 'vertical'
+    canvas:
+        Color:
+            rgb: 0.21,0.21,0.21
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Image:
+        id: image
+        size: self.size
+        source: ""
+        canvas.before:
+            Color:
+                rgb: 0.21,0.21,0.21
+            Rectangle:
+                size: self.size
+                pos: self.pos
+    FileChooserIconView:
+        path: './'
+        id: filechooser
+        on_selection: file_detect.selected(filechooser.selection)
+
+<BoxCategoria>:
+    padding: 10
+    spacing: 10
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+<BoxInsertProducts>:
+    orientation: 'vertical'
+    padding: 30,10,30,40
+    spacing: 5
+    canvas:
+        Color:
+            rgb: 0.11,0.16,0.31
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    
+    Label:
+        text: 'Detalles del Producto'
+        font_size: 30
+    TextInput:
+        id: codeText
+        hint_text: 'Codigo'
+        text: 'ART-' + root.codigo
+        size_hint: (1, 0.3)
+        font_size: 24
+        multiline: False
+        write_tab: False
+        disabled: True
+    TextInput:
+        id: nombreText
+        hint_text: 'Nombre del Producto'
+        size_hint: (1, 0.3)
+        font_size: 24
+        multiline: False
+        write_tab: False
+        focus: True
+    TextInput:
+        id: categoriaText
+        hint_text: 'Categoria del Prducto'
+        text: 'CTG-' + root.nombre_categoria
+        size_hint: (1, 0.3)
+        font_size: 24
+        multiline: False
+        write_tab: False
+        disabled: True
+    TextInput:
+        id: cantidadText
+        hint_text: 'Cantidad Disponible'
+        size_hint: (1, 0.3)
+        font_size: 24
+        multiline: False
+        write_tab: False
+    TextInput:
+        id: precioText
+        hint_text: 'Precio en $'
+        size_hint: (1, 0.3)
+        font_size: 24
+        multiline: False
+        write_tab: False
+    TextInput:
+        id: pesoText
+        hint_text: 'Peso si posee'
+        size_hint: (1, 0.3)
+        font_size: 24
+        multiline: False
+        write_tab: False
+    Button:
+        id: imgText
+        size_hint: (1, None)
+        size_hint: (1, 0.3)
+        font_size: 24
+        text: 'imagen del produc.'
+        on_press: root.btn_chooser_file_P()
+    Button:
+        size_hint: (1, None)
+        size_hint: (1, 0.3)
+        font_size: 24
+        text: 'Insertar Producto'
+        on_press: root.btn_insert_product(codeText.text, nombreText.text, categoriaText.text, cantidadText.text, precioText.text, pesoText.text, None)
+
+<BoxInsertProductsDetails>:
+    orientation: 'vertical'
+    padding: 30,10,30,40
+    spacing: 5
+    canvas:
+        Color:
+            rgb: 0.11,0.16,0.31
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    
+    Label:
+        text: 'Detalles del Producto'
+        font_size: 30
+    TextInput:
+        id: codeText2
+        hint_text: 'Codigo'
+        text: 'ART-' + root.codigo
+        size_hint: (1, 0.3)
+        font_size: 24
+        multiline: False
+        write_tab: False
+        disabled: True
+    TextInput:
+        id: nombreText2
+        hint_text: 'Nombre del Producto'
+        text: root.nombre_producto
+        size_hint: (1, 0.3)
+        font_size: 24
+        multiline: False
+        write_tab: False
+        focus: True
+    TextInput:
+        id: categoriaText2
+        hint_text: 'Categoria del Prducto'
+        text: 'CTG-' + root.nombre_categoria
+        size_hint: (1, 0.3)
+        font_size: 24
+        multiline: False
+        write_tab: False
+        disabled: True
+    TextInput:
+        id: cantidadText2
+        hint_text: 'Cantidad Disponible'
+        text: root.cantidad
+        size_hint: (1, 0.3)
+        font_size: 24
+        multiline: False
+        write_tab: False
+    TextInput:
+        id: precioText2
+        hint_text: 'Precio en $'
+        text: root.precio
+        size_hint: (1, 0.3)
+        font_size: 24
+        multiline: False
+        write_tab: False
+    TextInput:
+        id: pesoText2
+        hint_text: 'Peso si posee'
+        text: root.peso
+        size_hint: (1, 0.3)
+        font_size: 24
+        multiline: False
+        write_tab: False
+    Button:
+        id: imgText2
+        size_hint: (1, None)
+        size_hint: (1, 0.3)
+        font_size: 24
+        text: 'imagen del produc.'
+        on_press: root.btn_chooser_file_P()
+    Button:
+        size_hint: (1, None)
+        size_hint: (1, 0.3)
+        font_size: 24
+        text: 'Actualizar Producto'
+        on_press: root.btn_insert_product(codeText2.text, nombreText2.text, categoriaText2.text, cantidadText2.text, precioText2.text, pesoText2.text, None)
